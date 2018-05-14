@@ -33,6 +33,8 @@ app.use((req, res, next) => {
 
 // Error handling endware
 app.use((err, req, res, next) => {
+  console.error(err.message)
+  console.error(err.stack)
   res.status(err.status || 500)
   res.send(err.message || 'Internal server error')
 })
